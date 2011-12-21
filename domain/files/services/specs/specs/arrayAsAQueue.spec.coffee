@@ -19,7 +19,7 @@
 
 #>> And the other _elements_ should remain - WRONG ON PURPOSE
 
-  array.length.should.equal 4
+  array.length.should.equal 5
 
 #>> Also, the shifted off element should not exist in array
 

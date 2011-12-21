@@ -11,10 +11,9 @@ report      = _.load 'reporting.report'
 exports.exe = (cmd, args) ->
 
   readFromDir path.resolve('./specs'), (specs) -> 
- #   console.log specs
-
+ 
     spex.runSpecs specs, (specs) -> 
-      #console.log specs
+      
       report specs
 
 
