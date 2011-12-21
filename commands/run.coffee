@@ -10,9 +10,6 @@ report      = _.load 'reporting.report'
 
 exports.exe = (cmd, args) ->
 
-  global.RZR = {}
-  global.RZR.ENV = 'spex.unit'
-
   readFromDir path.resolve('./specs'), (specs) ->  
     spex.runSpecs specs, (specs) -> 
       
