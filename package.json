@@ -1,7 +1,7 @@
 {
    "name":"spex-cli",
    "description":"spex cli test-runner",
-   "version":"0.0.1",
+   "version":"0.0.2",
    "homepage":"http://github.com/wearefractal/spex-cli",
    "repository":"git://github.com/wearefractal/spex-cli",
  "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
@@ -11,9 +11,10 @@
 
    "dependencies":{
       "commando":"*",
-      "slice":"*",
-      "modulate":"*",
-      "spex":"*"
+      "node-log":"*",
+      "slice":">= 0.0.2",
+      "modulate":">= 0.0.2",
+      "spex":">= 0.0.4"
    },
 
    "devDependencies":{
