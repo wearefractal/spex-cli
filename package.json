@@ -1,26 +1,34 @@
 {
-   "name":"commando",
-   "description":"CLI Microframework",
-   "version":"0.0.2",
-   "homepage":"http://github.com/wearefractal/commando",
-   "repository":"git://github.com/wearefractal/commando",
-   "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
-   "preferGlobal":true,
+   "name":"spex-cli",
+   "description":"spex cli test-runner",
+   "version":"0.0.1",
+   "homepage":"http://github.com/wearefractal/spex-cli",
+   "repository":"git://github.com/wearefractal/spex-cli",
+ "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
    "bin":{
-      "commando":"./bin/cli.coffee"
+     "spex":"./bin/cli.coffee"
    },
+
    "dependencies":{
-      "coffee-script":"*",
-      "node-log":"*",
-      "async":"*"
+      "commando":"*",
+      "slice":"*",
+      "modulate":"*",
+      "spex":"*"
    },
+
+   "devDependencies":{
+      "should":"*",
+      "spex-util":"*"
+   },
+   
    "engines":{
       "node":">= 0.4.0"
    },
    "licenses":[
       {
          "type":"MIT",
-         "url":"http://github.com/wearefractal/commando/raw/master/LICENSE"
+         "url":"http://github.com/wearefractal/spex-cli/raw/master/LICENSE"
       }
    ]
-}		
+}
+
