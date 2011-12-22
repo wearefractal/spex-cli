@@ -14,8 +14,10 @@ exports.exe = (cmd, args) ->
   global.RZR = {}
   global.RZR.ENV = 'spex.unit'
 
-  readFromDir path.resolve('./specs'), (error, specs) ->  
-    
-    if error then (log.error error.message)
-    else spex.runSpecs specs, (specs) -> report specs
+  readFromDir process.cwd(), (err, specs) ->      
+    if err? then log.error err
+    else 
+      spex.runSpecs specs, (err, specs) -> 
+        if err? then log.error err
+        else report specs
 

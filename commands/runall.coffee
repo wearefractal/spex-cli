@@ -15,23 +15,40 @@ exports.exe = (cmd, args) ->
 
   global.RZR = {}
   global.RZR.ENV = 'spex.unit'
+  
 
-
- 
-  walk process.cwd(), (error, files) ->      
+  walk process.cwd(), (err, files) ->      
 
     specs = []
 
-    if error? then log.error error
+    if err? then log.error err
     else
       for file in files
         if file.contains '.spec' 
-          specs.push file unless file.contains 'node_modules'
+          specs.push createSpec file unless file.contains 'node_modules'
 
-    spex.runSpecs specs, (error, specs) ->
-      
-      report specs
-      
+      spex.runSpecs specs, (err, specs) -> 
+        report specs
+        
+ 
+createSpec = (filePath) ->
+  try
+    file = fs.readFileSync filePath    
+    ext  = path.extname file
+    filePath = filePath.split '/'
+    name = filePath.pop()
+    return new spex.Spec 
+      name: path.basename name, ext
+      specDSL: file.toString()
+      isCoffee: (ext is '.coffee')
+      specDir: path.resolve filePath, '..'    
+  catch e
+    console.log e
+
+#  readFromDir path.resolve('./specs'), (error, specs) ->     
+#    if error then (log.error error.message)
+#    else spex.runSpecs specs, (specs) -> report specs
+
 
 walk = (dir, next) ->
 
